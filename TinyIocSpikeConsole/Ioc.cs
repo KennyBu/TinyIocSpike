@@ -9,7 +9,14 @@ namespace TinyIocSpikeConsole
              var container = TinyIoC.TinyIoCContainer.Current;
              container.Register<IPerson, Hero>("theHero").AsMultiInstance();
              container.Register<IPerson, Villan>("theVillan").AsMultiInstance();
+
+             container.Register<IGloat, KingGloat>().AsMultiInstance();
+             //container.Register<IGloat, HumbleGloat>().AsMultiInstance();
+
+             container.Register<IPerson, King>("theKing").AsMultiInstance();
+
              
+
          }
     }
 }
