@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Models;
 
 namespace TinyIocSpikeConsole
 {
@@ -9,7 +7,16 @@ namespace TinyIocSpikeConsole
     {
         static void Main(string[] args)
         {
+            var container = TinyIoC.TinyIoCContainer.Current;
+            Ioc.Register();
 
+            var hero = container.Resolve<IPerson>("theHero");
+            var villan = container.Resolve<IPerson>("theVillan");
+            
+            Console.WriteLine(hero.Gloat());
+            Console.WriteLine(villan.Gloat());
+
+            Console.ReadKey();
         }
     }
 }
